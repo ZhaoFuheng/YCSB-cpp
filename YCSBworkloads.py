@@ -16,8 +16,8 @@ p = Process(target=KeepConnection, args=("",))
 p.daemon = True
 p.start()
 
-# load 70 GB
-mb_to_write = [1024*70]
+# load data
+mb_to_write = [1024*64]
 
 db_path = "/home/ec2-user/research/mountpt/"
 
