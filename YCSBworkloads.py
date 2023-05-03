@@ -62,8 +62,7 @@ if (sys.argv[1] == "1"):
         # set scaling factor to T
         curr_command += ["-p", f"leveldb.base_scaling_factor={T}"]
 
-        # set sleep time (approx 10 minutes for 32 GB and scaled based on size)
-        curr_command += ["-p", f"leveldb.sleep_time={num_mb // 30}"]
+        curr_command += ["-p", "leveldb.sleep_time=300"]
         
         curr_command += ["-p", f"recordcount=1"] # key start at 1
         curr_command += ["-p", f"operationcount={op_count}"]
@@ -83,7 +82,7 @@ if (sys.argv[1] == "1"):
 
         curr_command = base_write_args.copy()
         curr_command += ["-p", f"leveldb.base_scaling_factor={k}"] # set scaling factor to k
-        curr_command += ["-p", f"leveldb.sleep_time={num_mb // 30}"]
+        curr_command += ["-p", "leveldb.sleep_time=300"]
         curr_command += ["-p", f"operationcount={op_count}"] # set operation count
         curr_command += ["-p", f"leveldb.dbname={db_path}ycsb_workloads_test_{num_mb}"]
         curr_command += ["-p", f"leveldb.ratio_diff={c}"]
